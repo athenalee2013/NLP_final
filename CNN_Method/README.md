@@ -1,5 +1,8 @@
 # 1. 執行前處理code，執行過程中同時會下載Word Embedding
 ```Bash
+# 由於處理中有用到nltk，如果套件沒安裝齊全會不能跑CreateTrainTestFiles.py
+# 而CreateTrainTestFiles.py產生的東西有直接上傳了
+# 如果想直接執行preprocess.py也可以
 python CreateTrainTestFiles.py
 python preprocess.py
 ```
