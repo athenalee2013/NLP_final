@@ -29,7 +29,7 @@ parser = ArgumentParser()
 parser.add_argument("--model_name", type=str, default='model_best.h5', help="saving model name")
 # parser.add_argument("--predict_file_name", type=str, default='Result.txt', help="predicted file name")
 args = parser.parse_args()
-model_name = arg.model_name
+model_name = args.model_name
 # file_name = arg.predict_file_name
 
 batch_size = 32
