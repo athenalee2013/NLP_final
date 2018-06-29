@@ -3,3 +3,11 @@
 python CreateTrainTestFiles.py
 python preprocess.py
 ```
+2. tesing
+First, you need to download the trained model to predict the results. The download link is shown below:<br> 
+https://drive.google.com/file/d/1j6TlNNBDXtdhxevr1jMMdGFhCuHeEhOh/view?usp=sharing
+
+Then, you can predict the results using the command below:
+```Bash
+python3 predict.py --model_name model_best.h5 ----predict_file_name Results.txt
+```
