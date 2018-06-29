@@ -40,17 +40,14 @@ from keras.utils import np_utils
 import tensorflow as tf
 from keras.callbacks import EarlyStopping, ModelCheckpoint
 from keras.layers import Dense,Input,LSTM,Bidirectional,Activation,Conv1D,GRU
-
-from keras.optimizers import Adam
-
 #from keras.engine import merge
-gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.3)
+gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.1)
 sess = tf.Session(config=tf.ConfigProto(gpu_options=gpu_options))
 
 batch_size = 64
 nb_filter = 200
 filter_length = 3
-hidden_dims = 128
+hidden_dims = 256
 nb_epoch = 100
 position_dims = 50
 GRU_hidden = 256
@@ -141,8 +138,8 @@ wordModel_out = Embedding(embeddings.shape[0], embeddings.shape[1], input_length
 #wordModel = Model(wordModel_in, wordModel_out)
 
 x = concatenate([wordModel_out, distanceModel1_out, distanceModel2_out])#wordModel_out#add
+x = Bidirectional(GRU(GRU_hidden, return_sequences=True,dropout=0.1,recurrent_dropout=0.1))(x)
 x = Conv1D(filters =nb_filter, kernel_size=filter_length, padding='same', activation='tanh', strides=1)(x)
-x = Bidirectional(GRU(GRU_hidden, return_sequences=True,dropout=0.2,recurrent_dropout=0.2))(x)
 #avg_pool = GlobalAveragePooling1D()(x)
 max_pool = GlobalMaxPooling1D()(x)
 #x = concatenate([avg_pool, max_pool])
@@ -151,7 +148,7 @@ preds = Dense(n_out, activation='softmax')(max_pool)
 model = Model(inputs=[wordModel_in, distanceModel1_in, distanceModel2_in], outputs = preds)
 
 
-model.compile(loss='categorical_crossentropy',optimizer=Adam(lr=1e-3), metrics=['accuracy'])
+model.compile(loss='categorical_crossentropy',optimizer='Adam', metrics=['accuracy'])
 print(model.summary())
 print ("Start training")
 #model.fit(x_train, y_train, batch_size=batch_size, epochs=epochs,verbose=1)

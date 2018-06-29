@@ -3,4 +3,4 @@ word_embedding 資料夾下面要下載https://public.ukp.informatik.tu-darmstad
 python3 reform_train_data.py<br>
 python3 reform_test_data.py<br>
 python3 preprocess.py<br>
-python3 CNN_RNN.py<br>
+python3 CNN_RNN.py 或是 python3 RNN_CNN.py<br>
