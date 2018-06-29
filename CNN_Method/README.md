@@ -9,5 +9,5 @@ https://drive.google.com/file/d/1j6TlNNBDXtdhxevr1jMMdGFhCuHeEhOh/view?usp=shari
 
 Then, you can predict the results using the command below:
 ```Bash
-python3 predict.py --model_name model_best.h5 ----predict_file_name Results.txt
+python3 predict.py --model_name model_best.h5 --predict_file_name Results.txt
 ```
