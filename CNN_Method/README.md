@@ -14,7 +14,7 @@ python3 predict.py --model_name model_best.h5 --predict_file_name Results.txt
 # 3. evaluation
 ```Bash
 perl semeval2010_task8_scorer-v1.2.pl <predict_file_name> answer_key.txt
-# <predict_file_name> == Results.txt in ours.
+# <predict_file_name> == 'Results.txt' in ours.
 ```
 # 4. training
 ```Bash
