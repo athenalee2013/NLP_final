@@ -1,8 +1,8 @@
 # 1. Requirements
-Tensorflow 1.8
-Keras 2.0.5
-Python3 & Python2
-nltk
+Tensorflow 1.8<br>
+Keras 2.0.5<br>
+Python3 & Python2<br>
+nltk<br>
 
 # 1. 執行前處理code，執行過程中同時會下載Word Embedding
 ```Bash
